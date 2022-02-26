@@ -1,11 +1,15 @@
-#include "mainwindow.h"
+#include "plusminus.h"
 
-#include <QApplication>
+int main(int argc, char *argv[]) {
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+  QApplication app(argc, argv);
+
+  PlusMinus window;
+
+  window.resize(300, 190);
+  window.setWindowTitle("Plus minus");
+  window.show();
+
+  return app.exec();
 }
+

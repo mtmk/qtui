@@ -11,19 +11,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 file(GLOB PROJECT_SOURCES src/*.cpp src/*.h)
 
-qt_add_executable(qtui MANUAL_FINALIZATION ${PROJECT_SOURCES})
-target_link_libraries(qtui PRIVATE Qt6::Widgets)
+add_executable(qtui ${PROJECT_SOURCES})
 
-set_target_properties(qtui PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
+target_link_libraries(qtui PRIVATE Qt5::Widgets)
 
-qt_finalize_executable(qtui)
